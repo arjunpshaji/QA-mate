@@ -1,0 +1,17 @@
+{
+	"name": "screen-record-backend",
+	"main": "src/index.ts",
+	"compatibility_date": "2026-09-01",
+	"r2_buckets": [
+		{
+			"bucket_name": "screen-recordings",
+			"binding": "screen_recordings"
+		}
+	],
+	"kv_namespaces": [
+		{
+			"binding": "RECORDING_META",
+			"id": "e618442144c044f5b9b11a034a78df22"
+		}
+	]
+}

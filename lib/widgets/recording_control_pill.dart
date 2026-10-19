@@ -189,6 +189,7 @@ class _RecordingControlPillState extends State<RecordingControlPill>
 
                   // Pause / Resume button
                   IconButton(
+                    key: const ValueKey('pill_pause_resume_btn'),
                     tooltip: isPaused ? 'Resume' : 'Pause',
                     padding: EdgeInsets.zero,
                     constraints: const BoxConstraints(minWidth: 32, minHeight: 32),
@@ -203,6 +204,7 @@ class _RecordingControlPillState extends State<RecordingControlPill>
 
                   // Mic mute/unmute button
                   IconButton(
+                    key: const ValueKey('pill_mic_btn'),
                     tooltip: widget.provider.isAudioEnabled ? 'Mute' : 'Unmute',
                     padding: EdgeInsets.zero,
                     constraints: const BoxConstraints(minWidth: 32, minHeight: 32),
@@ -221,6 +223,7 @@ class _RecordingControlPillState extends State<RecordingControlPill>
 
                   // Discard / Cancel button
                   IconButton(
+                    key: const ValueKey('pill_discard_btn'),
                     tooltip: 'Discard',
                     padding: EdgeInsets.zero,
                     constraints: const BoxConstraints(minWidth: 32, minHeight: 32),

@@ -351,6 +351,7 @@ class _HomeScreenState extends State<HomeScreen>
 
                   // Hero Dial Record Button
                   ReelRecordButton(
+                    key: const ValueKey('record_button'),
                     isRecording: provider.isRecording,
                     onTap: () {
                       if (provider.isRecording) {
@@ -365,6 +366,7 @@ class _HomeScreenState extends State<HomeScreen>
 
                   // Setting Shortcut Pill
                   GestureDetector(
+                    key: const ValueKey('settings_shortcut_pill'),
                     onTap: () => setState(() => _currentTabIndex = 2),
                     child: Container(
                       padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 8),
@@ -403,6 +405,7 @@ class _HomeScreenState extends State<HomeScreen>
                       // Voice Card
                       Expanded(
                         child: _buildQuickToggleCard(
+                          key: const ValueKey('toggle_voice'),
                           icon: Icons.mic_rounded,
                           title: 'Voice',
                           subtitle: provider.isAudioEnabled ? 'On' : 'Off',
@@ -415,6 +418,7 @@ class _HomeScreenState extends State<HomeScreen>
                       // Touches Card
                       Expanded(
                         child: _buildQuickToggleCard(
+                          key: const ValueKey('toggle_touches'),
                           icon: Icons.adjust_rounded,
                           title: 'Touches',
                           subtitle: provider.isShowTouchesEnabled ? 'On' : 'Off',
@@ -431,6 +435,7 @@ class _HomeScreenState extends State<HomeScreen>
                       // Sound Card
                       Expanded(
                         child: _buildQuickToggleCard(
+                          key: const ValueKey('toggle_sound'),
                           icon: provider.deviceSoundEnabled
                               ? Icons.volume_up_rounded
                               : Icons.volume_off_rounded,
@@ -539,6 +544,7 @@ class _HomeScreenState extends State<HomeScreen>
   }
 
   Widget _buildQuickToggleCard({
+    Key? key,
     required IconData icon,
     required String title,
     required String subtitle,
@@ -546,6 +552,7 @@ class _HomeScreenState extends State<HomeScreen>
     required VoidCallback onTap,
   }) {
     return GestureDetector(
+      key: key,
       onTap: onTap,
       child: AnimatedContainer(
         duration: const Duration(milliseconds: 180),
@@ -817,16 +824,19 @@ class _HomeScreenState extends State<HomeScreen>
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
               _buildNavItem(
+                key: const ValueKey('nav_record'),
                 index: 0,
                 icon: Icons.radio_button_checked_rounded,
                 label: 'Record',
               ),
               _buildNavItem(
+                key: const ValueKey('nav_library'),
                 index: 1,
                 icon: Icons.grid_view_rounded,
                 label: 'Library',
               ),
               _buildNavItem(
+                key: const ValueKey('nav_settings'),
                 index: 2,
                 icon: Icons.tune_rounded,
                 label: 'Settings',
@@ -839,6 +849,7 @@ class _HomeScreenState extends State<HomeScreen>
   }
 
   Widget _buildNavItem({
+    Key? key,
     required int index,
     required IconData icon,
     required String label,
@@ -847,6 +858,7 @@ class _HomeScreenState extends State<HomeScreen>
     final color = isSelected ? Colors.white : AppTheme.textMuted;
 
     return GestureDetector(
+      key: key,
       behavior: HitTestBehavior.opaque,
       onTap: () => setState(() => _currentTabIndex = index),
       child: Column(
